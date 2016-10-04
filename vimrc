@@ -37,6 +37,9 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
+" disable cursor blinking in normal mode
+let &guicursor = substitute(&guicursor, 'n-v-c:', '&blinkon0-', '')
+
 " search
 set incsearch
 "set highlight 	" conflict with highlight current line
@@ -74,7 +77,7 @@ set textwidth=120
 set expandtab       " expand tab to space
 
 " file type stuffs
-autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType cpp setlocal tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 " 'syntax on' to fix highlight not working on php file
@@ -168,7 +171,7 @@ let g:tagbar_compact = 1
 " endif
 
 " === Nerd Tree ===
-let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
 let NERDChristmasTree=0
 let NERDTreeWinSize=30
@@ -189,7 +192,7 @@ let g:user_emmet_next_key='<C-n>'
 let g:user_emmet_prev_key='<C-p>'
 
 " powerline
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
 " NeoComplCache
 let g:neocomplcache_enable_at_startup=1
