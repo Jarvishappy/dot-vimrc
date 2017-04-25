@@ -78,7 +78,7 @@ set expandtab       " expand tab to space
 
 " file type stuffs
 autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType cpp setlocal tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 " 'syntax on' to fix highlight not working on php file
 autocmd FileType php syntax on setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
@@ -86,6 +86,9 @@ autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 "autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+
+" let .cu to be seen as .cpp
+autocmd FileType cuda set ft=cpp
 
 " syntax support
 autocmd Syntax javascript set syntax=jquery   " JQuery syntax support

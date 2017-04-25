@@ -29,7 +29,7 @@ Plugin 'honza/vim-snippets'
 " Fast navigation
 "-----------------
 "Plugin 'tsaleh/vim-matchit'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 
 "--------------
 " Fast editing
