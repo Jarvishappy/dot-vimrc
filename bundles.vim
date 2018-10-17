@@ -18,9 +18,9 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'ervandew/supertab'
 " snippets
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 "Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 "------ snipmate dependencies -------
 "Plugin 'MarcWeber/vim-addon-mw-utils'
 "Plugin 'tomtom/tlib_vim'
@@ -91,7 +91,7 @@ Plugin 'tpope/vim-markdown'
 " Plugin 'tpope/vim-endwise'
 
 "------- Go ----------
-Plugin 'jnwhiteh/vim-golang'
+Plugin 'fatih/vim-go'
 
 "------- FPs ------
 Plugin 'kien/rainbow_parentheses.vim'

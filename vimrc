@@ -32,16 +32,15 @@ set splitbelow
 set background=dark
 colorscheme Tomorrow-Night-Bright
 
-" highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+" cursorline will slow down scrolling, just disables it
+set nocursorline nocursorcolumn
 
 " disable cursor blinking in normal mode
 let &guicursor = substitute(&guicursor, 'n-v-c:', '&blinkon0-', '')
 
 " search
 set incsearch
+
 "set highlight 	" conflict with highlight current line
 set ignorecase
 set smartcase
@@ -72,9 +71,9 @@ set smartindent     " indent when
 set tabstop=4       " tab width
 set softtabstop=4   " backspace
 set shiftwidth=4    " indent width
-set textwidth=120
 " set smarttab
 set expandtab       " expand tab to space
+set textwidth=120
 
 " file type stuffs
 autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -189,11 +188,6 @@ let NERDSpaceDelims=1
 nnoremap <D-/> :NERDComToggleComment<cr>
 let NERDCompactSexyComs=1
 
-" === ZenCoding ===
-let g:user_emmet_expandabbr_key='<C-j>'
-let g:user_emmet_next_key='<C-n>'
-let g:user_emmet_prev_key='<C-p>'
-
 " powerline
 let g:Powerline_symbols = 'fancy'
 
@@ -223,11 +217,6 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 
-" SuperTab
-" let g:SuperTabDefultCompletionType='context'
-let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
-let g:SuperTabRetainCompletionType=2
-
 " === cscope_maps ===
 nmap <silent> <F2> :!cscope -Rbq<cr>:cscope reset<cr>
 
@@ -252,8 +241,8 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 
 " === ultisnips ===
-let g:UltiSnipsExpandTrigger = "<C-e>"
-let g:UltiSnipsListSnippets = "<C-tab>"  " list all available snippets
+let g:UltiSnipsExpandTrigger = "<c-e>"
+let g:UltiSnipsListSnippets = "<c-tab>"  " list all available snippets
 let g:UltiSnipsJumpForwardTrigger = "<C-l>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsUsePythonVersion = 2
@@ -261,16 +250,23 @@ let g:UltiSnipsUsePythonVersion = 2
 " === YCM ===
 au BufNewFile,BufRead *.c set filetype=cpp  " set filetype of .c file to cpp for YCM
 let g:ycm_collect_identifiers_from_tags_files = 1
-"let g:ycm_auto_trigger = 1
+" let g:ycm_auto_trigger = 0  " use completer mannually
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filetype_specific_completion_to_disable = "{'javascript' : 1}"
 let g:ycm_key_invoke_completion = '<C-Space>'
-" disable annoying syntastic diagnostics
-let g:ycm_show_diagnostics_ui = 0
+let g:ycm_show_diagnostics_ui = 0   " disable annoying syntastic diagnostics
+let g:ycm_enable_diagnostic_highlighting = 0
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>s :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
 
 " === delimitMate ===
 au FileType c,cpp let b:delimitMate_matchpairs = "(:),[:],{:}"
+
+" === vim-go ===
+" let g:go_version_warning = 0
+let g:go_snippet_engine = 'ultisnips'
 
 
 " Keybindings for plugin toggle
@@ -279,8 +275,8 @@ au FileType c,cpp let b:delimitMate_matchpairs = "(:),[:],{:}"
 "nnoremap <F2> :YcmForceCompileAndDiagnostics
 nnoremap <F4> :TagbarToggle<cr>
 nnoremap <F5> :NERDTreeTabsToggle<cr>
-nnoremap <F8> :GundoToggle<cr>
-nnoremap <F10> :make push<cr>
+" nnoremap <F8> :GundoToggle<cr>
+nnoremap <F10> :!./push.sh<cr>
 "nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
